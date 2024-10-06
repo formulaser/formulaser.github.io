@@ -14,13 +14,13 @@
 body {
     min-height: 100vh;
     max-width: 100vw;
-    background-color: rgb(206, 255, 196);
+    background-color: rgb(234, 255, 230);
 
 }
 
 .header__top {
     border-bottom: solid 3px;
-    background-color: rgb(196, 255, 247);
+    background-color: rgb(211, 255, 249);
 
 
 }
@@ -39,4 +39,62 @@ body {
 .top__menu-item a {
     text-decoration: none;
     color: inherit;
+    transition: text-shadow 0.2s;
+}
+
+.top__menu-item a:hover {
+    text-shadow: 0px 0px 9px rgba(0,0,0,0.55);
+}
+
+.top__menu-item a:active {
+    text-shadow: 0px 0px 9px rgba(0,0,0,0.34);
+}
+
+.header__content {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+.cards {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.info-card {
+    height: 10vh;
+    border: solid 2.5px rgb(32, 27, 48);
+    margin: 30px 0 30px 0;
+    border-radius: 25px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: max-content;
+    font-size: 25px;
+    background-color: rgb(253, 255, 253);
+    transition:
+    background-color 0.3s,
+    text-shadow 0.3s;
+}
+
+.info-card span {
+    margin: 0 300px 0 300px;
+}
+
+.info-card:hover {
+    background-color: rgb(238, 238, 238);
+}
+
+.info-card:active {
+    background-color: rgb(255, 255, 255);
+}
+
+.card-link {
+    white-space: none;
+    text-decoration: none;
+    color: inherit;
+    font-size: 25px;
 }
