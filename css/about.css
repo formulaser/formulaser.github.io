@@ -9,7 +9,7 @@
 .about__img {
     max-width: 65%;
     margin: 30px;
-    border: solid 2px;
+    border: solid 2px #4b4b4b;
     border-radius: 20px;
 }
 
@@ -26,14 +26,45 @@
 
 .about__text {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #cac6c6;
+	text-shadow: 
+		-0   -1px 1px #0F0F0F,
+		 0   -1px 1px #0F0F0F,
+		-0    1px 1px #0F0F0F,
+		 0    1px 1px #0F0F0F,
+		-1px -0   1px #0F0F0F,
+		 1px -0   1px #0F0F0F,
+		-1px  0   1px #0F0F0F,
+		 1px  0   1px #0F0F0F,
+		-1px -1px 1px #0F0F0F,
+		 1px -1px 1px #0F0F0F,
+		-1px  1px 1px #0F0F0F,
+		 1px  1px 1px #0F0F0F,
+		-1px -1px 1px #0F0F0F,
+		 1px -1px 1px #0F0F0F,
+		-1px  1px 1px #0F0F0F,
+		 1px  1px 1px #0F0F0F;
 }
 
 .about__text h2 {
     text-align: center;
-    font-size: 40px;
+    font-size: 50px;
 }
 
 .about__text p {
     text-align: center;
-    font-size: 25px;
+    font-size: 35px;
 }
+
+/* #theme_switch {
+    border: none;
+    outline: none;
+    width: 100px;
+    height: 100px;
+    border-radius: 9px;
+    background-image: linear-gradient(to bottom, #424a55, #384349, #313b3d, #2c3232, #282a29);
+    aspect-ratio: 1 / 1;
+    max-height: 100px;
+    margin: 30px 0 0 0;
+    cursor: pointer;
+} */

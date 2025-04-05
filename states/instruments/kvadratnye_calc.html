@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            box-sizing: border-box;
+            user-select: none;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: #ebebeb;
+        }
+
+        .container {
+            margin: 1vh 1vw 1vh 1vw;
+        }
+
+        h1,h2 {
+            text-align: center;
+            margin: 3vh 1vw 3vh 1vw;
+            font-size: 30px;
+        }
+
+        .inputs {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 2fr 1fr 0.5fr 1fr 0.5fr 1fr 2fr;
+        }
+
+        input {
+            min-height: 6vh;
+            text-align: center;
+            border-radius: 15px;
+            transition: border-radius 0.3s;
+            font-size: 20px;
+        }
+        input:focus {
+            transition: border-radius 0.3s;
+            outline: solid green 2px;
+            outline-offset: -1px;
+            border-radius: 10px;
+        }
+
+        .button-box {
+            margin: 8vh 0 0 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        button {
+            font-size: 25px;
+            background: #d5ff9ea8;
+            padding: 11px;
+            border: solid 2px;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: background 1s;
+            width: 300px;
+        }
+        button:hover {
+            transition: background 0.5s;
+            background: #afda78a8;
+        }
+        button:hover:active {
+            transition: background 0.2s;
+            background: #e8ffcba8;
+        }
+
+        .result {
+            margin-top: 10vh;
+            width: 100%;
+            border-top: solid 2px;
+            text-align: center;
+
+        }
+        .result h2 {letter-spacing: 4px; font-size: 30px;}
+
+        p {
+            font-size: 40px;
+            display: none;
+        }
+
+        span {
+            color: #c00000;
+        }
+
+        #otvet {
+            color: rgb(168, 26, 26);
+        }
+    </style>
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="shortcut icon" href="/images/icon.png">
+
+    <title>Формулы сокращенного умножения</title>
+</head>
+<body>
+    
+    <div class="content">
+        <header>
+
+            <div class="header__top">
+                <ul class="top__menu">
+                    <li class="top__menu-item"><a draggable="false" href="/instruments.html">Инструменты</a></li>
+                    <li class="top__menu-item"><a draggable="false" href="/algebra.html">Алгебра</a></li>
+                    <li class="top__menu-item"><a draggable="false" href="/index.html">ГЛАВНАЯ</a></li>
+                    <li class="top__menu-item"><a draggable="false" href="/geometry.html">Геометрия</a></li>
+                    <li class="top__menu-item"><a draggable="false" href="/tests.html">Тесты</a></li>
+                </ul>
+            </div>
+
+            <div class="header__content">
+                
+                <div class="header__content">
+                    <div class="container">
+                        <h1>Квадратные уравнения</h1>
+                        <h2>ax<sup>2</sup> + bx + c = 0</h2>
+                        <div class="inputs">
+                            <div></div>
+                            <input autocomplete="off" placeholder="Значение a" id="a" type="text">
+                            <div></div>
+                            <input autocomplete="off" placeholder="Значение b" type="text" id="b">
+                            <div></div>
+                            <input autocomplete="off" placeholder="Значение c" type="text" id="c">
+                            <div></div>
+                        </div>
+                        <div class="button-box"><button id="answer" onclick="answer()">Найти корни</button></div>
+                        <div class="result">
+                            <h2>ОТВЕТ: <span id="otvet"></span></h2>
+                            <p id="one_root">Один корень (x) = <span id="root"></span></p>
+                            <p id="two_root">Первый корень (x<sub>1</sub>) = <span id="root1">1233432</span></p>
+                            <p id="three_root">Второй корень (x<sub>2</sub>) = <span id="root2">1233432</span></p>
+                
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </header>
+
+    </div>
+
+<script>
+function answer() {
+    const a = document.getElementById('a')
+    const b = document.getElementById('b')
+    const c = document.getElementById('c')
+    let o = document.getElementById('otvet')
+
+    let av = parseFloat(a.value)
+    let bv = parseFloat(b.value)
+    let cv = parseFloat(c.value)
+
+
+    let D = bv**2 - 4 * av * cv
+    if (D < 0) {
+        av = ""
+        bv = ""
+        cv = ""
+        o.textContent = 'Нет корней'
+        document.getElementById('one_root').style.display = 'none'
+        document.getElementById('two_root').style.display = 'none'
+        document.getElementById('three_root').style.display = 'none'
+    }
+    else if (D === 0) {
+        x = (-bv) / 2 * av
+        x = x * 100
+        document.getElementById('root').textContent = (Math.round(x) / 100)
+        document.getElementById('one_root').style.display = 'block'
+        document.getElementById('two_root').style.display = 'none'
+        document.getElementById('three_root').style.display = 'none'
+        o.textContent = ''
+    }
+    else if (D > 0) {
+        let x1 = (-bv + D**0.5) / 2 * av
+        let x2 = (-bv - D**0.5) / 2 * av
+
+        x1 = x1 * 100
+        x2 = x2 * 100
+    
+        document.getElementById('root1').textContent = (Math.round(x1) / 100)
+        document.getElementById('root2').textContent = (Math.round(x2) / 100)
+        document.getElementById('two_root').style.display = 'block'
+        document.getElementById('three_root').style.display = 'block'
+        document.getElementById('one_root').style.display = 'none'
+        o.textContent = ''
+    }
+    else {
+        o.textContent = 'Неверно набраны значения'
+        document.getElementById('one_root').style.display = 'none'
+        document.getElementById('two_root').style.display = 'none'
+        document.getElementById('three_root').style.display = 'none'
+    }
+   
+
+}
+</script>
+<script src="js/theme.js"></script>
+</body>
+</html>
